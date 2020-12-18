@@ -1,9 +1,9 @@
 <template>
-  <v-card>
+  <v-card width="480" class="auth-login mx-auto">
     <v-card-title>登录</v-card-title>
-    <v-card-subtitle>赶快登录体验吧</v-card-subtitle>
+    <v-card-subtitle>登录体验</v-card-subtitle>
     <v-card-text>
-      <validation-observer ref="loginForm" v-slot="{ invalid }">
+      <validation-observer ref="loginForm">
         <v-form @submit.prevent="submit">
           <validation-provider
             v-slot="{ errors }"
@@ -11,23 +11,29 @@
             name="用户名"
           >
             <v-text-field
-              v-model="loginFormData.username"
-              :counter="10"
-              :error-messages="errors"
+              outlined
               label="用户名"
+              placeholder="请输入用户名"
+              prepend-inner-icon="mdi-account"
+              v-model="loginFormData.username"
+              :error-messages="errors"
             ></v-text-field>
           </validation-provider>
           <validation-provider v-slot="{ errors }" rules="required" name="密码">
             <v-text-field
+              outlined
+              label="密码"
+              placeholder="请输入密码"
+              prepend-inner-icon="mdi-lock"
               v-model="loginFormData.password"
               :error-messages="errors"
-              label="密码"
             ></v-text-field>
           </validation-provider>
           <v-btn
-            class="mr-4"
+            block
+            x-large
+            color="primary"
             type="submit"
-            :disabled="invalid"
             @click.prevent="handleLogin"
           >
             登录
@@ -76,4 +82,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.auth-login {
+  margin-top: 200px;
+}
+</style>
