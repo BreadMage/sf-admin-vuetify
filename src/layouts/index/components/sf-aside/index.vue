@@ -9,7 +9,7 @@
   >
     <v-list nav>
       <template v-for="route in routeModules">
-        <sf-aside-item :key="route.name" :route="route" />
+        <sf-aside-item :key="route.name" :route="route" v-if="!route.hidden" />
       </template>
     </v-list>
   </v-navigation-drawer>
