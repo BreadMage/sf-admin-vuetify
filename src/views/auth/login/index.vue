@@ -25,6 +25,7 @@
               label="密码"
               placeholder="请输入密码"
               prepend-inner-icon="mdi-lock"
+              type="password"
               v-model="loginFormData.password"
               :error-messages="errors"
             ></v-text-field>
@@ -75,6 +76,9 @@ export default {
     handleLogin () {
       this.$refs.loginForm.validate().then(vali => {
         if (vali) {
+          this.$store.dispatch('auth/handleLogin', this.loginFormData).then(() => {
+            this.$router.push('/')
+          })
         }
       })
     }

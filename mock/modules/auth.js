@@ -5,8 +5,7 @@ const path = require('path')
 // 用户列表
 const users = {
   admin: {
-    id: 1,
-    name: 'Admin',
+    info: { id: 1, name: 'Admin' },
     permission: [
       'dashboard-workplace',
       'dashboard-analysis',
@@ -16,8 +15,7 @@ const users = {
     ]
   },
   test: {
-    id: 2,
-    name: 'Test',
+    info: { id: 2, name: 'Test' },
     permission: [
       'dashboard-workplace',
       'dashboard-analysis',
