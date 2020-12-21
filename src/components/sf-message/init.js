@@ -59,11 +59,6 @@ export default function (Vue) {
    * @param {Object} options
    */
   function generateSfMessageInstance (options) {
-    if (typeof options !== 'object') {
-      options = {
-        message: options
-      }
-    }
     return new SfMessageConstructor({
       data () {
         return {

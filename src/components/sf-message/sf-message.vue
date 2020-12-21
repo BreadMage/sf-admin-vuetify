@@ -20,9 +20,6 @@ export default {
     return {
       aliveCount: 0
     }
-  },
-  updated () {
-    console.log(this.value)
   }
 }
 </script>
