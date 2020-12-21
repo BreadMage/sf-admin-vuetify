@@ -1,5 +1,6 @@
 import axios from 'axios'
 // import store from '@/store'
+import SfMessage from '@/components/sf-message'
 import { AUTHKEY } from '@/config.js'
 
 const service = axios.create({
@@ -29,6 +30,9 @@ service.interceptors.response.use(
 
     // if the custom code is not 20000, it is judged as an error.
     if (res.code !== 200) {
+      SfMessage.error({
+        message: res.msg || '服务器开了小差'
+      })
       // Message({
       //   message: res.message || 'Error',
       //   type: 'error',
